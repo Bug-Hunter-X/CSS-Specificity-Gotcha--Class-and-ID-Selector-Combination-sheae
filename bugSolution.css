@@ -1,0 +1,21 @@
+/*
+This solution demonstrates how to address the CSS specificity issue shown in bug.css.
+We use a more specific selector to target the element.  There are other solutions such as modifying the selector order in the stylesheet;  the key is to have a clear understanding of CSS specificity.
+*/
+
+.container {
+  width: 100px; /* This rule will be overridden by a more specific selector*/
+}
+
+#container {
+  width: 200px; /* This rule will be overridden by a more specific selector */
+}
+
+.container #container {
+  width: 150px; /* This is now the most specific selector and will override the previous two */
+}
+
+/* Or, even better, be more precise with selector and have no issue with the order */
+#container.container {
+  width: 150px;
+}
