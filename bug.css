@@ -1,0 +1,19 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+.container {
+  width: 100px;
+}
+
+#container {
+  width: 200px;
+}
+
+.container #container {
+  width: 150px;
+}
+```
+
+The issue lies in the unexpected behavior when both a class selector (`.container`) and an ID selector (`#container`) are used within the same element.  While it might seem that the most specific selector (`.container #container`) would win, the CSS engine treats it as two separate selectors, and the order of declarations within the stylesheet plays a significant role.
+
+In this case, the specificity of `.container` and `#container` are both equal. Thus,  the last declaration wins.  If the stylesheet is reversed or the last declaration is changed, the resulting width will also change.
